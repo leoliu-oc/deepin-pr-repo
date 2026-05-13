@@ -133,11 +133,11 @@ struct zhaoxin_pin_topology {
 
 #define ZHAOXIN_GPIO_BASE_NOMAP -1
 
-typedef enum {
+enum zx_gpio_type {
 	ZX_TYPE_ERROR = 0,
 	ZX_TYPE_GPIO,
 	ZX_TYPE_PGPIO,
-} zx_gpio_type;
+};
 
 struct zhaoxin_pinctrl_soc_data {
 	const char *uid;
@@ -149,7 +149,7 @@ struct zhaoxin_pinctrl_soc_data {
 	size_t nfunctions;
 	const struct zhaoxin_pin_topology *pin_topologys;
 
-	zx_gpio_type (*gpio_type)(struct zhaoxin_pinctrl *pctrl, unsigned int pin);
+	enum zx_gpio_type (*gpio_type)(struct zhaoxin_pinctrl *pctrl, unsigned int pin);
 
 	void (*private_init)(struct zhaoxin_pinctrl *pctrl);
 
@@ -168,7 +168,7 @@ struct zhaoxin_pinctrl {
 	const struct zhaoxin_pin_topology *pin_topologys;
 	struct zhaoxin_pin_map2_gpio *pin_maps;
 
-	zx_gpio_type (*gpio_type)(struct zhaoxin_pinctrl *pctrl, unsigned int pin);
+	enum zx_gpio_type (*gpio_type)(struct zhaoxin_pinctrl *pctrl, unsigned int pin);
 
 	void (*private_init)(struct zhaoxin_pinctrl *pctrl);
 	size_t pin_map_size;

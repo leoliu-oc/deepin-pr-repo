@@ -322,7 +322,7 @@ static const struct zhaoxin_pin_map2_gpio kh50000_pinmap_gpps[] = {
 	ZHAOXIN_GPP(140, 144, ZHAOXIN_GPIO_BASE_NOMAP), /* no range */
 };
 
-static zx_gpio_type kh50000_gpio_type(struct zhaoxin_pinctrl *pctrl, unsigned int pin)
+static enum zx_gpio_type kh50000_gpio_type(struct zhaoxin_pinctrl *pctrl, unsigned int pin)
 {
 	if (pin >= 24 && pin <= 27)
 		return ZX_TYPE_PGPIO;

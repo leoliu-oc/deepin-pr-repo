@@ -286,7 +286,7 @@ static const struct zhaoxin_pin_map2_gpio kx7000_pinmap_gpps[] = {
 	ZHAOXIN_GPP(99, 112, 21),
 };
 
-static zx_gpio_type kx7000_gpio_type(struct zhaoxin_pinctrl *pctrl, unsigned int pin)
+static enum zx_gpio_type kx7000_gpio_type(struct zhaoxin_pinctrl *pctrl, unsigned int pin)
 {
 	if (pin >= 0xE && pin <= 0x13)
 		return ZX_TYPE_PGPIO;
